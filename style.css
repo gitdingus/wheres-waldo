@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.gameboard {
+  width: fit-content;
+  height: fit-content;
+
+  /* cursor: none; */
+}
+
+.target {
+  box-sizing: border-box;
+  pointer-events: none;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: rgba(128, 128, 128, .4);
+  border: 3px dashed black;
+  z-index: 5;
+  margin: 0;
+  padding: 0;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bullseye {
+  box-sizing: border-box;
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+  border: 2px solid red;
+  margin: 0;
+  padding: 0;
+}
+
+.character-list {
+  position: absolute;
+  display: none;
+  background: white;
+  z-index: 10;
+}
+
+.character-list.active {
+  display: block;
+}
+
+.character:hover {
+  background-color: lightskyblue;
+}
