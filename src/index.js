@@ -1,8 +1,10 @@
-import Point from './src/Point.js';
-import Box from './src/Box.js';
-import Character from './src/Character.js';
-import Gameboard from './src/Gameboard.js';
-import TargetingSystem from './src/TargetingSystem.js';
+import Point from './Point.js';
+import Box from './Box.js';
+import Character from './Character.js';
+import Gameboard from './Gameboard.js';
+import TargetingSystem from './TargetingSystem.js';
+import waldo1 from './images/waldo-1.jpg';
+import './style.css';
 
 const waldosBox = new Box(new Point(1832, 1145), new Point(1913, 1296));
 const Waldo = new Character('Waldo', waldosBox);
@@ -12,7 +14,7 @@ const YellowBathingSuitMan = new Character('Yellow Bathing Suit Man', yellowBath
 
 const characters = [Waldo, YellowBathingSuitMan];
 
-const gameboards = [ new Gameboard('../waldo-1.jpg', characters) ];
+const gameboards = [ new Gameboard(waldo1, characters) ];
 const activeBoard = gameboards[0];
 const gameboardDiv = document.querySelector('.gameboard');
 const gameboardImage = document.querySelector('.gameboard img');
