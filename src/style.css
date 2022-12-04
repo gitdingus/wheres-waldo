@@ -2,6 +2,13 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.banner, .login {
+  position: relative;
+  background: white;
+  z-index: 1000;
+}
+
 .gameboard {
   width: fit-content;
   height: fit-content;
