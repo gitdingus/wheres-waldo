@@ -18,6 +18,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "dom-utils": "github:gitdingus/dom-utils",
     "firebase": "^9.14.0"
   }
 }
