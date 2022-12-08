@@ -42,3 +42,8 @@ async function authChanged (user) {
   }
 }
 
+window.addEventListener('beforeunload', async () => {
+  if (auth.getUser().isAnonymous) {
+    await auth.deleteAnonymousUser();
+  }
+});

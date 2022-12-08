@@ -40,6 +40,12 @@ async function authChanged (user) {
   }
 }
 
+window.addEventListener('beforeunload', async () => {
+  if (auth.getUser().isAnonymous) {
+    await auth.deleteAnonymousUser();
+  }
+});
+
 
 const waldosBox = new Box(new Point(1832, 1145), new Point(1913, 1296));
 const Waldo = new Character('Waldo', waldosBox);

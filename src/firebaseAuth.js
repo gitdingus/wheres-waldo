@@ -66,6 +66,12 @@ class Auth {
       });
   }
 
+  deleteAnonymousUser = async () => {
+    if (this.auth.currentUser.isAnonymous) {
+      await deleteUser(this.auth.currentUser);
+    }
+  }
+
   getUser() {
     return this.auth.currentUser;
   }
