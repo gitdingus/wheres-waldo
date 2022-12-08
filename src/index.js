@@ -8,6 +8,8 @@ import firebaseConfig from './config/firebase-config.js';
 import { initializeApp } from 'firebase/app';
 import Login from './Login.js';
 import Auth from './firebaseAuth.js';
+import Game from './Game.js';
+
 import './style.css';
 
 const firebaseApp = initializeApp(firebaseConfig);
@@ -38,6 +40,9 @@ async function authChanged (user) {
       loginDiv.appendChild(Login.getAdminLinks());
     }
   }
+
+  const content = document.querySelector('.content');
+  content.appendChild(await Game.getGameboardsElement(firebaseApp));
 }
 
 window.addEventListener('beforeunload', async () => {
