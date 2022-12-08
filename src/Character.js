@@ -1,7 +1,8 @@
 class Character {
-  constructor(name, box) {
+  constructor(name, box, image = '') {
     this.name = name;
     this.box = box;
+    this.image = image;
     this.found = false;
   }
 
@@ -22,6 +23,14 @@ class Character {
 
   getName() {
     return this.name;
+  }
+
+  getCoordinates() {
+    return this.box;
+  }
+
+  getImage() {
+    return this.image;
   }
 }
 
