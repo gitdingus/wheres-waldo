@@ -1,21 +1,33 @@
 <div>
-  <form>
-    <label for="gameboard-title">Gameboard Title</label>
-    <input id="gameboard-title" type="text" />
-    <label for="gameboard-image">Image</label>
-    <input id="gameboard-image" type="file" accept="image/*" />
-    <div class="gameboard-characters">
-      <label for="character">Character Name</label>
-      <input id="character" type="text" />
-      <label for="character-image">Character Image</label>
+  <form class="gameboard-form">
+    <div class="gameboard-info">
+      <label for="gameboard-title">Gameboard Title</label>
+      <input id="gameboard-title" type="text" />
+      <label>Image</label>
+      <input id="gameboard-image" type="file" accept="image/*" />
+    </div>
+    <div class="character-info">
+      <label for="character-name">Character Name</label>
+      <input id="character-name" type="text" />
+      <label>Character Image</label>
       <input id="character-image" type="file" accept="image/*" />
       <label for="x1">Coordinates</label>
-      <input id="x1" type="number" />
-      <input id="y1" type="number" />
-      <input id="x2" type="number" />
-      <input id="y2" type="number" />
-      <button type="button">Add Character</button>
+      <div class="coordinates">
+        <input id="x1" type="number" />
+        <input id="y1" type="number" />
+        <button type="button" id="set-point-one">Set Point</button>
+      </div>
+      <div class="coordinates">
+        <input id="x2" type="number" />
+        <input id="y2" type="number" />
+        <button type="button" id="set-point-two">Set Point</button>
+
+      </div>
+      <button type="button" id="add-character-button">Add Character</button>
+      <div class="character-list"></div>
     </div>
-    <button type="submit">Create Gameboard</button>
+    <button type="submit" id="create-gameboard-button">Create Gameboard</button>
+    <img id="gameboard-preview" />
+
   </form>
 </div>
