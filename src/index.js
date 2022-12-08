@@ -50,7 +50,14 @@ async function authChanged (user) {
   }
 
   const content = document.querySelector('.content');
-  content.appendChild(await Game.getGameboardsElement(firebaseApp));
+  const gameboardClicked = async (id) => {
+    const content = document.querySelector('.content');
+
+    clearContentDiv();
+    content.appendChild(await Game.getGameboard(firebaseApp, id));
+  };
+
+  content.appendChild(await Game.getGameboardsElement(firebaseApp, gameboardClicked));
 }
 
 window.addEventListener('beforeunload', async () => {
