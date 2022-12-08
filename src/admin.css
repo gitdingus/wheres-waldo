@@ -1,0 +1,22 @@
+.gameboard-info{
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+.character-info {
+  display: grid; 
+  grid-template-columns: 200px 1fr;
+}
+
+.character-info .coordinates {
+  grid-column: 2 / 3;
+}
+
+.character-info button {
+  grid-column: 2 / 3;
+}
+
+form * {
+  margin: 2px;
+}
+
