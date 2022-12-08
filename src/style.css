@@ -16,6 +16,23 @@ body {
   /* cursor: none; */
 }
 
+.gameboards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameboards .gameboard-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameboards .gameboard-preview img{
+  width: 400px;
+  max-height: 600px;
+}
 .target {
   box-sizing: border-box;
   pointer-events: none;
