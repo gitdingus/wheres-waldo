@@ -16,6 +16,14 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 const auth = new Auth(firebaseApp, authChanged);
 
+const clearContentDiv = () => {
+  const contentDiv = document.querySelector('.content');
+
+  while (contentDiv.firstElementChild !== null) {
+    contentDiv.firstElementChild.remove();
+  }
+}
+
 async function authChanged (user) {
   if (user === null) {
     return;
