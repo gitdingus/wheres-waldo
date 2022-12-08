@@ -14,6 +14,14 @@ class Box {
 
     return false;
   }
+
+  getPointOne() { 
+    return this.p1;
+  }
+
+  getPointTwo() {
+    return this.p2;
+  }
 }
 
 export default Box;
