@@ -19,6 +19,10 @@ async function authChanged (user) {
   while (loginDiv.firstElementChild !== null) {
     loginDiv.firstElementChild.remove();
   }
+
+  while (content.firstElementChild !== null) {
+    content.firstElementChild.remove();
+  }
   
   if (user.isAnonymous) {
     loginDiv.appendChild(Login.getLoginScreen(auth.signIn));
