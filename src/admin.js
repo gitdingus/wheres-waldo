@@ -35,7 +35,7 @@ async function authChanged (user) {
     console.log(role);
     if (role === 'administrator') {
       loginDiv.appendChild(Login.getAdminLinks());
-      content.appendChild(AdminTools.getAddGameboardForm());
+      content.appendChild(AdminTools.getAddGameboardForm(firebaseApp, auth.getAuth()));
     }
 
     console.log('user logged in');
