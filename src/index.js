@@ -1,9 +1,3 @@
-import Point from './Point.js';
-import Box from './Box.js';
-import Character from './Character.js';
-import Gameboard from './Gameboard.js';
-import TargetingSystem from './TargetingSystem.js';
-import waldo1 from './images/waldo-1.jpg';
 import firebaseConfig from './config/firebase-config.js';
 import { initializeApp } from 'firebase/app';
 import Login from './Login.js';
