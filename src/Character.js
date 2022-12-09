@@ -1,5 +1,5 @@
 class Character {
-  constructor(name, box, image = '') {
+  constructor(name, box = null, image = '') {
     this.name = name;
     this.box = box;
     this.image = image;
