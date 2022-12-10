@@ -6,7 +6,7 @@ body {
 .banner, .login {
   position: relative;
   background: white;
-  z-index: 1000;
+  z-index: 500;
 }
 
 .gameboard {
