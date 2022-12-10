@@ -30,8 +30,11 @@ body {
 .gameboards .gameboard-preview {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+
+  height: 350px;
+
+  box-shadow: 0 0 4px 3px rgb(143, 143, 235);
 }
 
 .gameboards .gameboard-preview img{
