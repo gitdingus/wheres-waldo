@@ -1,3 +1,4 @@
+import { appendChildren } from 'dom-utils';
 import Point from './Point.js';
 
 class TargetingSystem {
@@ -31,20 +32,31 @@ class TargetingSystem {
 
   getCharacterList(list) {
     const listOfTargetsDiv = document.createElement('div');
-    listOfTargetsDiv.classList.add('character-list');
-
-    list.forEach((target) => {
+    const characterDivs = list.map((character) => {
       const div = document.createElement('div');
       div.classList.add('character');
-      div.setAttribute('data-character-name', target.getName());
-      if (target.wasFound() === true) {
+      div.setAttribute('data-character-name', character.getName());
+      if (character.wasFound() === true) {
         div.classList.add('found');
       }
 
-      div.textContent = target.getName();
+      div.textContent = character.getName();
 
-      listOfTargetsDiv.appendChild(div);
+      return div;
     });
+
+    appendChildren(listOfTargetsDiv, characterDivs);
+    listOfTargetsDiv.classList.add('character-list');
+
+    const _updateCharacterDivs = () => {
+      characterDivs.forEach((characterDiv) => {
+        const character = list.find((char) => char.getName() === characterDiv.getAttribute('data-character-name'));
+      
+        if (character.wasFound() === true) {
+          characterDiv.classList.add('found');
+        }
+      });
+    }
 
     const characterSelected = (e) => {
       this._characterSelectedCallback(e.target.getAttribute('data-character-name'));
@@ -54,6 +66,7 @@ class TargetingSystem {
 
     listOfTargetsDiv.drawCharacterList = (point, characterListCallback) => {
       this.mode = 'select';
+      _updateCharacterDivs();
       this.characterList.classList.add('active');
       this._characterSelectedCallback = characterListCallback;
       listOfTargetsDiv.style.left = `${point.x}px`;
