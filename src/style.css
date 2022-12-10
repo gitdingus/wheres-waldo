@@ -1,3 +1,6 @@
+:root {
+  --top-banner-height: 85px;
+}
 body {
   margin: 0;
   padding: 0;
@@ -10,13 +13,20 @@ body {
 }
 
 .banner {
-  /* display: flex;
-  justify-content: space-between; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: var(--top-banner-height);
+  width: 100vw;
 
-  padding: 15px;
+  box-sizing: border-box;
+  background-color: skyblue;
+  box-shadow: 2px 2px 4px rgb(89, 191, 231);
 }
 
 .banner h1 {
+  font-family: Helvetica;
+  font-weight: 200;
   text-align: center;
 }
 
