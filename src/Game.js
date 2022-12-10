@@ -105,9 +105,12 @@ class Game {
                         && point.getY() >= coordinates.y1
                         && point.getY() <= coordinates.y2
                     ) {
-                        console.log(name, ' found!');
+                        const character = characters.find((character) => character.getName() === name);
+                        character.setFound(true);
+
+                        gameboardDiv.appendChild(Game.#popupMessage(`Found ${name}!`, true));
                     } else {
-                        console.log('keep looking!');
+                        gameboardDiv.appendChild(Game.#popupMessage('Keep looking!', false));
                     }
                 });
 
@@ -130,6 +133,23 @@ class Game {
 
 
         return gameboardDiv;
+    }
+
+    static #popupMessage(text, positive = true) {
+        const container = document.createElement('div');
+        const messageDiv = document.createElement('div');
+
+        container.classList.add('popup-message-container');
+        container.classList.add(`${positive === true ? 'positive' : 'negative'}`);
+        messageDiv.classList.add('message'); 
+
+        messageDiv.textContent = text;
+
+        container.appendChild(messageDiv);
+
+        setTimeout(() => { container.remove() }, 2000);
+        return container;
+    
     }
 
 }
