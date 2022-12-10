@@ -51,6 +51,7 @@ async function authChanged (user) {
     content.appendChild(await Game.getGameboard(firebaseApp, id));
   };
 
+  clearContentDiv();
   content.appendChild(await Game.getGameboardsElement(firebaseApp, gameboardClicked));
 }
 
