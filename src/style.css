@@ -187,7 +187,7 @@ body {
 
 .popup-message-container {
   position: fixed;
-  top: 75px;
+  top: calc(var(--top-banner-height) + 75px);
   
   width: 100vw;
 
