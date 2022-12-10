@@ -85,3 +85,9 @@ body {
 .character:hover {
   background-color: lightskyblue;
 }
+
+.character.found {
+  pointer-events: none;
+  text-decoration: line-through;
+}
+
