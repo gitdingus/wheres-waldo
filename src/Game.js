@@ -53,6 +53,7 @@ class Game {
         const characters = gameboardData.characterNames.map((characterName) => new Character(characterName));
 
         const gameboardDiv = document.createElement('div');
+        const gameboardInfo = document.createElement('div');
         const charactersDiv = document.createElement('div');
         const gameboardTitle = document.createElement('h1');
         const gameboardImage = document.createElement('img');
@@ -62,6 +63,7 @@ class Game {
         const characterSelectBox = targetingSystem.getCharacterList(characters);
 
         gameboardDiv.classList.add('gameboard');
+        gameboardInfo.classList.add('gameboard-info');
         charactersDiv.classList.add('characters');
 
         gameboardTitle.textContent = gameboardData.title;
@@ -74,10 +76,12 @@ class Game {
             charactersDiv.appendChild(characterP);
         });
 
+        gameboardInfo.appendChild(gameboardTitle);
+        gameboardInfo.appendChild(charactersDiv);
+
         gameboardDiv.appendChild(target);
         gameboardDiv.appendChild(characterSelectBox);
-        gameboardDiv.appendChild(gameboardTitle);
-        gameboardDiv.appendChild(charactersDiv);
+        gameboardDiv.appendChild(gameboardInfo);
         gameboardDiv.appendChild(gameboardImage);
 
         gameboardImage.addEventListener('pointermove', (e) => {
