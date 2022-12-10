@@ -91,3 +91,31 @@ body {
   text-decoration: line-through;
 }
 
+.popup-message-container {
+  position: fixed;
+  top: 75px;
+  
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-message-container.positive .message{
+  background-color: green;
+}
+
+.popup-message-container.negative .message{
+  background-color: red;
+}
+
+.popup-message-container .message {
+  padding: 10px 40px;
+  border: 1px solid black;
+}
+
+.popup-message-container .message p {
+  margin: 0;
+}
