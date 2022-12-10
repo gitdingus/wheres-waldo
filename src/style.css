@@ -20,6 +20,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  
+  padding: 10px;
+
 }
 
 .gameboards .gameboard-preview {
