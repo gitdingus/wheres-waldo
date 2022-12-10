@@ -67,6 +67,9 @@ body {
   padding: 10px;
 }
 
+.content {
+  margin-top: var(--top-banner-height);
+}
 .gameboard {
   width: fit-content;
   height: fit-content;
