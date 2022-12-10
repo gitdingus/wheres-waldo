@@ -77,6 +77,33 @@ body {
   /* cursor: none; */
 }
 
+.gameboard .gameboard-info {
+  position: fixed;
+  background-color: rgba(173, 216, 230, .8);
+  padding: 10px 30px;
+  padding-bottom: 20px;
+
+  border-bottom-right-radius: 20px;
+  box-shadow: 2px 2px 4px rgb(173, 216, 230);
+
+}
+
+.gameboard .gameboard-info h1 {
+  font-size: 1.5em;
+  font-weight: 200;
+  margin: 5px;
+}
+
+.gameboard .gameboard-info p {
+  font-family: arial;
+  margin-left: 15px;
+  padding: 0;
+}
+
+.gameboard .gameboard-info p.found {
+  text-decoration: line-through;
+}
+
 .gameboards {
   display: flex;
   justify-content: center;
