@@ -9,6 +9,54 @@ body {
   z-index: 500;
 }
 
+.banner {
+  /* display: flex;
+  justify-content: space-between; */
+
+  padding: 15px;
+}
+
+.banner h1 {
+  text-align: center;
+}
+
+#login {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#login form {
+  font-family: Arial;
+  font-size: 12px;
+
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+#login form button {
+  padding: 2px 20px;
+  grid-column: 2/3;
+  justify-self: end;
+}
+#login .welcome {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#login .welcome button, p {
+  margin: 0;
+  padding: 5px 15px;
+}
+
+#login .admin-links {
+  text-align: right;
+  padding: 10px;
+}
+
 .gameboard {
   width: fit-content;
   height: fit-content;
