@@ -162,21 +162,27 @@ body {
 .character-list {
   position: absolute;
   display: none;
-  background: white;
   z-index: 10;
+
+  background-color: rgba(173, 216, 230, .8);
+
+  border-radius: 20px;
+  box-shadow: 2px 2px 4px rgb(173, 216, 230);
 }
 
 .character-list.active {
   display: block;
 }
 
+.character {
+  padding: 5px 30px;
+}
 .character:hover {
   background-color: lightskyblue;
 }
 
 .character.found {
-  pointer-events: none;
-  text-decoration: line-through;
+  display: none;
 }
 
 .popup-message-container {
