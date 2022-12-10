@@ -66,7 +66,11 @@ class AdminTools {
     })
 
     addCharacterButton.addEventListener('click', () => {
-      const newBox = new Box(new Point(x1.value, y1.value), new Point(x2.value, y2.value));
+      const x1Num = Number.parseInt(x1.value);
+      const y1Num = Number.parseInt(y1.value);
+      const x2Num = Number.parseInt(x2.value);
+      const y2Num = Number.parseInt(y2.value);
+      const newBox = new Box(new Point(x1Num, y1Num), new Point(x2Num, y2Num));
       const newCharacter = new Character(characterName.value, newBox);
 
       characters.push(newCharacter);
