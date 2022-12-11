@@ -185,7 +185,15 @@ body {
 .character {
   padding: 5px 30px;
   cursor: pointer;
+}
 
+.character-list .character:first-child {
+  border-top-right-radius: 20px;
+}
+
+.character-list .character:last-child {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 .character:hover {
   background-color: lightskyblue;
