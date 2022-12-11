@@ -197,7 +197,7 @@ body {
 
 .popup-message-container {
   position: fixed;
-  top: calc(var(--top-banner-height) + 75px);
+  top: calc(var(--top-banner-height) + 1px);
   
   width: 100vw;
 
@@ -208,16 +208,19 @@ body {
 }
 
 .popup-message-container.positive .message{
-  background-color: green;
+  background-color: rgb(108, 170, 108);
 }
 
 .popup-message-container.negative .message{
-  background-color: red;
+  background-color: rgb(238, 135, 135);
 }
 
 .popup-message-container .message {
   padding: 10px 40px;
-  border: 1px solid black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+
 }
 
 .popup-message-container .message p {
