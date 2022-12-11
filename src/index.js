@@ -49,6 +49,7 @@ async function authChanged (user) {
 
     clearContentDiv();
     content.appendChild(await Game.getGameboard(firebaseApp, id));
+    window.addEventListener('mousemove', Game.getWindowDragListener());
   };
 
   clearContentDiv();
