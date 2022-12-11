@@ -46,6 +46,7 @@ class Game {
     }
 
     static async getGameboard(app, id) {
+        let draggingGameboard = false;
         const db = getFirestore(app);
         const gameboardsCollection = collection(db, 'gameboards');
         const gameboardDoc = doc(gameboardsCollection, id);
@@ -89,6 +90,12 @@ class Game {
         gameboardImage.addEventListener('pointermove', (e) => {
             const point = new Point(e.pageX, e.pageY);
             target.drawTarget(point);
+
+            if (e.buttons !== 0) {
+                window.scrollTo(window.scrollX - e.movementX, window.scrollY - e.movementY);
+                draggingGameboard = true;
+            }
+            
         });
 
         const gameboardClicked = (point) => {
@@ -131,6 +138,11 @@ class Game {
             const pagePoint = new Point(e.pageX, e.pageY);
             const imagePoint = new Point(e.offsetX, e.offsetY);
 
+            if (draggingGameboard === true) {
+                draggingGameboard = false;
+                return;
+            }
+
             if (targetingSystem.getMode() === 'select') {
                 characterSelectBox.hideCharacterList();
                 target.drawTarget(pagePoint);
@@ -143,16 +155,6 @@ class Game {
 
 
         return gameboardDiv;
-    }
-
-    static getWindowDragListener(e) {
-        const windowDragListener = (e) => {
-            if (e.buttons !== 0) {
-                window.scrollTo(window.scrollX - e.movementX, window.scrollY - e.movementY);
-            }
-        }
-
-        return windowDragListener;
     }
 
     static #popupMessage(text, positive = true, persistent = false) {
