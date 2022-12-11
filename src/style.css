@@ -171,9 +171,10 @@ body {
   display: none;
   z-index: 10;
 
-  background-color: rgba(173, 216, 230, .8);
+  background-color: rgba(173, 216, 230, 0.8);
 
   border-radius: 20px;
+  border-top-left-radius: 0;
   box-shadow: 2px 2px 4px rgb(173, 216, 230);
 }
 
@@ -183,6 +184,8 @@ body {
 
 .character {
   padding: 5px 30px;
+  cursor: pointer;
+
 }
 .character:hover {
   background-color: lightskyblue;
