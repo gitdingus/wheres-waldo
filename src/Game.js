@@ -138,7 +138,9 @@ class Game {
             const pagePoint = new Point(e.pageX, e.pageY);
             const imagePoint = new Point(e.offsetX, e.offsetY);
 
-            if (draggingGameboard === true) {
+            if (draggingGameboard === true
+                || gameboard.allCharactersFound() === true
+            ) {
                 draggingGameboard = false;
                 return;
             }
