@@ -29,15 +29,12 @@ async function authChanged (user) {
   }
   
   if (user.isAnonymous) {
-    console.log('user is anonymous');
     loginDiv.appendChild(Login.getLoginScreen(auth.signIn));
   } else if (user !== null && user.isAnonymous === false) {
-    console.log('user logged in');
     loginDiv.appendChild(Login.getWelcomeScreen(user.email, auth.signOut));
   
     const role = await auth.getAccountType();
 
-    console.log(role);
     if (role === 'administrator') {
       loginDiv.appendChild(Login.getAdminLinks());
     }

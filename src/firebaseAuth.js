@@ -23,7 +23,6 @@ class Auth {
   }
 
   authListener  = (user) => {
-    console.log('auth state changed');
     if (user === null){
       signInAnonymously(this.auth)
         .then(this.sendUser(user));
@@ -38,7 +37,6 @@ class Auth {
     if (this.auth.currentUser !== null && this.auth.currentUser.isAnonymous) {
       deleteUser(this.auth.currentUser)
         .then(() => {
-          console.log('after delete');
           signInWithEmailAndPassword(this.auth, email, password)
           .then((userCredential) => {
             this.unsubscribeToAuth = onAuthStateChanged(this.auth, this.authListener);
