@@ -69,6 +69,7 @@ class Game {
 
         gameboardTitle.textContent = gameboardData.title;
         gameboardImage.src = gameboardData.image;
+        gameboardImage.draggable = false;
 
         gameboardData.characterNames.forEach((character) => {
             const characterP = document.createElement('p');
@@ -142,6 +143,16 @@ class Game {
 
 
         return gameboardDiv;
+    }
+
+    static getWindowDragListener(e) {
+        const windowDragListener = (e) => {
+            if (e.buttons !== 0) {
+                window.scrollTo(window.scrollX - e.movementX, window.scrollY - e.movementY);
+            }
+        }
+
+        return windowDragListener;
     }
 
     static #popupMessage(text, positive = true, persistent = false) {
