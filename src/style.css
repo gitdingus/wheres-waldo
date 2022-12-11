@@ -20,7 +20,7 @@ body {
   width: 100vw;
 
   box-sizing: border-box;
-  background-color: skyblue;
+  background-color: rgba(135, 206, 235, .98);
   box-shadow: 2px 2px 4px rgb(89, 191, 231);
 }
 
@@ -28,6 +28,11 @@ body {
   font-family: Helvetica;
   font-weight: 200;
   text-align: center;
+}
+
+.banner h1 a {
+  text-decoration: none;
+  color: inherit;
 }
 
 #login {
