@@ -110,17 +110,28 @@ body {
 }
 
 .gameboards {
+  padding: 10px;
+  height: 100vh;
+  background-color: rgb(197, 229, 241);
+}
+
+.gameboards h1 {
+  text-align: center;
+  font-family: arial;
+  font-weight: 200;
+}
+.gameboard-previews {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   flex-wrap: wrap;
   gap: 30px;
-  
-  padding: 10px;
+
+
 
 }
 
-.gameboards .gameboard-preview {
+.gameboard-previews .gameboard-preview {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -132,7 +143,7 @@ body {
   cursor: pointer;
 }
 
-.gameboards .gameboard-preview img{
+.gameboard-previews .gameboard-preview img{
   width: 400px;
   max-height: 600px;
 }
