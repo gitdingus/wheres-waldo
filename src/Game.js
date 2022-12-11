@@ -1,3 +1,4 @@
+import { getElementFromTemplateFile } from 'dom-utils';
 import {
     getFirestore,
     doc,
@@ -11,15 +12,16 @@ import TargetingSystem from './TargetingSystem.js';
 import Point from './Point.js';
 import Character from './Character.js';
 import Gameboard from './Gameboard.js';
+import displayGameboards from './template/display-gameboards.template.html';
+
 
 class Game {
     static async getGameboardsElement(app, callback) {
         const db = getFirestore(app);
         const gameboardsCollectionRef = collection(db, 'gameboards');
         const snapshot = await getDocs(gameboardsCollectionRef);
-        const gameboardsDiv = document.createElement('div');
-
-        gameboardsDiv.classList.add('gameboards');
+        const displayGameboardsDiv = getElementFromTemplateFile(displayGameboards);
+        const gameboardsDiv = displayGameboardsDiv.querySelector('.gameboard-previews');
 
         snapshot.forEach((gameboard) => {
             const gameboardData = gameboard.data();
@@ -42,7 +44,7 @@ class Game {
             gameboardsDiv.appendChild(gameboardDiv);
         });
 
-        return gameboardsDiv;
+        return displayGameboardsDiv;
     }
 
     static async getGameboard(app, id) {
