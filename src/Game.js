@@ -10,6 +10,7 @@ import {
 import TargetingSystem from './TargetingSystem.js';
 import Point from './Point.js';
 import Character from './Character.js';
+import Gameboard from './Gameboard.js';
 
 class Game {
     static async getGameboardsElement(app, callback) {
@@ -51,7 +52,7 @@ class Game {
         const snapshot = await getDoc(gameboardDoc);
         const gameboardData = snapshot.data();
         const characters = gameboardData.characterNames.map((characterName) => new Character(characterName));
-
+        const gameboard = new Gameboard(gameboardData.image, characters);
         const gameboardDiv = document.createElement('div');
         const gameboardInfo = document.createElement('div');
         const charactersDiv = document.createElement('div');
@@ -112,7 +113,11 @@ class Game {
                         const character = characters.find((character) => character.getName() === name);
                         character.setFound(true);
 
-                        gameboardDiv.appendChild(Game.#popupMessage(`Found ${name}!`, true));
+                        if (gameboard.allCharactersFound() === true) {
+                            gameboardDiv.appendChild(Game.#popupMessage(`All characters have been found!!`, true, true));
+                        } else {
+                            gameboardDiv.appendChild(Game.#popupMessage(`Found ${name}!`, true));
+                        }
                     } else {
                         gameboardDiv.appendChild(Game.#popupMessage('Keep looking!', false));
                     }
