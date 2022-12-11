@@ -139,7 +139,7 @@ class Game {
         return gameboardDiv;
     }
 
-    static #popupMessage(text, positive = true) {
+    static #popupMessage(text, positive = true, persistent = false) {
         const container = document.createElement('div');
         const messageDiv = document.createElement('div');
 
@@ -151,7 +151,9 @@ class Game {
 
         container.appendChild(messageDiv);
 
-        setTimeout(() => { container.remove() }, 2000);
+        if (persistent === false) {
+            setTimeout(() => { container.remove() }, 2000);
+        }
         return container;
     
     }
