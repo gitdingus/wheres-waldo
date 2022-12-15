@@ -39,7 +39,6 @@ class AdminTools {
     const setPointTwo = gameboardForm.querySelector('#set-point-two');
     const characterList = gameboardForm.querySelector('.character-list');
     const gameboardPreview = gameboardForm.querySelector('#gameboard-preview');
-    const createGameboardButton = gameboardForm.querySelector('#create-gameboard-button');
     const characters = [];
 
     const addToCharacterList = (character) => {
