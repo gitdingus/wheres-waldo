@@ -1,3 +1,11 @@
+.gameboard-form h1 {
+  padding: 10px;
+  text-align: center;
+
+  font-family: arial;
+  font-weight: 200;
+}
+
 .gameboard-info{
   display: grid;
   grid-template-columns: 200px 1fr;
