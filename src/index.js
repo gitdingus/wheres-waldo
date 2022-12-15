@@ -4,6 +4,7 @@ import Login from './Login.js';
 import Auth from './firebaseAuth.js';
 import Game from './Game.js';
 
+import './common.css';
 import './style.css';
 
 const firebaseApp = initializeApp(firebaseConfig);
