@@ -3,6 +3,7 @@ import { initializeApp } from 'firebase/app';
 import Login from './Login.js';
 import Auth from './firebaseAuth.js';
 import AdminTools from './AdminTools.js';
+import './style.css';
 import './admin.css';
 
 const firebaseApp = initializeApp(firebaseConfig);
