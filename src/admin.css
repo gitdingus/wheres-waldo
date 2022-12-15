@@ -27,6 +27,24 @@
   grid-column: 2 / 3;
 }
 
+.character-list {
+  grid-column: 2 / 3;
+}
+
+.character {
+  display: flex;
+  align-items: center;
+}
+
+.character canvas {
+  display: none;
+}
+
+.character canvas.show {
+  display: block;
+}
+
+
 .content {
   display: flex;
   justify-content: center;
