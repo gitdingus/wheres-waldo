@@ -1,4 +1,4 @@
-import { getElementFromTemplateFile } from 'dom-utils';
+import { getElementFromTemplateFile, appendChildren } from 'dom-utils';
 import accessDenied from './template/no-access.template.html';
 import addGameboardForm from './template/add-gameboard-form.template.html';
 import Point from './Point.js';
@@ -44,13 +44,47 @@ class AdminTools {
     const addToCharacterList = (character) => {
       const characterDiv = document.createElement('div');
       const name = document.createElement('p');
-      const previewImage = document.createElement('img');
+      const createPreviewFromCoordinatesButton = document.createElement('button');
+      const removeCharacterButton = document.createElement('button');
+      const previewImage = document.createElement('canvas');
 
+      createPreviewFromCoordinatesButton.type = 'button';
+      removeCharacterButton.type = 'button';
+      createPreviewFromCoordinatesButton.addEventListener('click', async (e) => {
+        const coords = character.getCoordinates();
+        const p1 = coords.getPointOne();
+        const p2 = coords.getPointTwo();
+        
+        previewImage.width = `${p2.getX() - p1.getX()}`;
+        previewImage.height = `${p2.getY() - p1.getY()}`;
+        const ctx = previewImage.getContext('2d');
+        let image = await createImageBitmap(
+          gameboardPreview, 
+          p1.getX(),
+          p1.getY(),
+          p2.getX() - p1.getX(),
+          p2.getY() - p1.getY()
+        );
+
+        ctx.drawImage(image, 0, 0);
+        previewImage.classList.add('show');
+
+      });
+      characterDiv.classList.add('character');
       name.textContent = character.getName();
+      createPreviewFromCoordinatesButton.textContent = 'Create preview from coordinates';
+      removeCharacterButton.textContent = 'Remove Character';
       previewImage.src = character.getImage();
 
-      characterDiv.appendChild(previewImage);
-      characterDiv.appendChild(name);
+      appendChildren(
+        characterDiv, 
+        [
+          previewImage,
+          name,
+          removeCharacterButton,
+          createPreviewFromCoordinatesButton
+        ]
+      );
 
       characterList.appendChild(characterDiv);
     };
