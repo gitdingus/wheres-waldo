@@ -28,6 +28,15 @@
   padding: 0;
 }
 
+.gameboard .gameboard-info .characters {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+}
+
+.gameboard .gameboard-info .characters img {
+  width: 50px;
+}
+
 .gameboard .gameboard-info p.found {
   text-decoration: line-through;
 }
