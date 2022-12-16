@@ -36,12 +36,16 @@
   align-items: center;
 }
 
+.character p {
+  flex: 1;
+}
 .character canvas {
-  display: none;
+  visibility: hidden;
+  width: 40px;
 }
 
 .character canvas.show {
-  display: block;
+  visibility: visible;
 }
 
 
