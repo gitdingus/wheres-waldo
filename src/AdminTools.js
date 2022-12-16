@@ -39,7 +39,7 @@ class AdminTools {
     const setPointTwo = gameboardForm.querySelector('#set-point-two');
     const characterList = gameboardForm.querySelector('.character-list');
     const gameboardPreview = gameboardForm.querySelector('#gameboard-preview');
-    const characters = [];
+    let characters = [];
 
     const addToCharacterList = (character) => {
       const characterDiv = document.createElement('div');
@@ -50,6 +50,11 @@ class AdminTools {
 
       createPreviewFromCoordinatesButton.type = 'button';
       removeCharacterButton.type = 'button';
+
+      removeCharacterButton.addEventListener('click', (e) => {
+        characters = characters.filter((char) => char.getName() !== character.getName());
+        characterDiv.remove();
+      });
       createPreviewFromCoordinatesButton.addEventListener('click', async (e) => {
         const coords = character.getCoordinates();
         const p1 = coords.getPointOne();
