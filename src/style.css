@@ -30,11 +30,11 @@
 
 .gameboard .gameboard-info .characters {
   display: grid;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 30px 1fr;
 }
 
 .gameboard .gameboard-info .characters img {
-  width: 50px;
+  width: 30px;
 }
 
 .gameboard .gameboard-info p.found {
