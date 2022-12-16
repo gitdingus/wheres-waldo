@@ -74,9 +74,9 @@ class Game {
         gameboardImage.src = gameboardData.image;
         gameboardImage.draggable = false;
 
-        gameboardData.characterNames.forEach((character) => {
+        characters.forEach((character) => {
             const characterP = document.createElement('p');
-            characterP.textContent = character;
+            characterP.textContent = character.getName();
 
             charactersDiv.appendChild(characterP);
         });
