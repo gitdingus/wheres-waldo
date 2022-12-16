@@ -68,6 +68,7 @@ class AdminTools {
 
         ctx.drawImage(image, 0, 0);
         previewImage.classList.add('show');
+        character.canvasImage = previewImage;
 
       });
       characterDiv.classList.add('character');
@@ -141,6 +142,28 @@ class AdminTools {
       return downloadUrl;
     }
 
+    const getCharacterImageURL = async (character) => {
+      console.log('in getCharacterImageURL');
+
+      const firebaseStorage = getStorage(app);
+      const newFilename = `${character.getName()}-preview.jpg`;
+      const storageRef = ref(firebaseStorage, `gameboards/${gameboardTitle.value}/${newFilename}`);
+      const getFile = await new Promise((resolve, reject) => {
+        character.canvasImage.toBlob((blob) => {
+          console.log(blob);
+          const file = new File([blob], `${character.getName()}-preview.jpg`, { type: 'image/jpeg'});
+          resolve(file);
+        }, 'image/jpeg');
+      });
+      console.log('uploading char image');
+      const uploadResult = await uploadBytes(storageRef, getFile);
+      console.log('char image uploaded, getting download url');
+      const downloadUrl = await getDownloadURL(storageRef);
+
+      console.log('returning', downloadUrl);
+      return downloadUrl;
+    }
+
     gameboardForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       
@@ -149,13 +172,23 @@ class AdminTools {
       const newGameboardDoc = doc(gameboardsCollection);
       const newGameboardTitle = gameboardTitle.value;
       const newGameboardImageUrl = await getGameboardImageURL();
-      const newGameboardCharacterNames = characters.map((character) => character.getName());
+      const newGameboardCharacters = await Promise.all(characters.map(async (character) => {
 
+        const imageUrl = await getCharacterImageURL(character);
+
+        return {
+          name: character.getName(),
+          image: imageUrl
+        }
+      }));
+
+
+      console.log(newGameboardCharacters);
       console.log('setting gameboard doc');
       setDoc(newGameboardDoc, {
         title: newGameboardTitle,
         image: newGameboardImageUrl,
-        characterNames: newGameboardCharacterNames,
+        characters: newGameboardCharacters,
       }).then(() => {
         console.log('set gameboard doc');
       });
