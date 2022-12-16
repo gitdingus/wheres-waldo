@@ -140,7 +140,8 @@ class AdminTools {
 
     const getGameboardImageURL = async () => {
       const firebaseStorage = getStorage(app);
-      const storageRef = ref(firebaseStorage, `gameboards/${gameboardImage.files[0].name}`);
+      const newFilename = `gameboard.${getExtension(gameboardImage.files[0].name)}`;
+      const storageRef = ref(firebaseStorage, `gameboards/${gameboardTitle.value}/${newFilename}`);
       const uploadResult = await uploadBytes(storageRef, gameboardImage.files[0]);
       const downloadUrl = await getDownloadURL(storageRef);
 
@@ -199,14 +200,14 @@ class AdminTools {
       });
 
 
-      // Write characters to their own documents in characters subcollection
+      // Write characters coordinates to their own documents in characters subcollection
       // This way you can retrieve coordinates later, one at a time when neccessary
       // Prevents cheating
 
       console.log('batch writing characters');
 
       const charactersBatch = writeBatch(firebaseDb);
-      const charactersSubCollection = collection(newGameboardDoc, 'characters');
+      const charactersSubCollection = collection(newGameboardDoc, 'character-coordinates');
 
       characters.forEach((character) => {
         const newCharacter = doc(charactersSubCollection);
