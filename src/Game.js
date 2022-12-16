@@ -54,7 +54,7 @@ class Game {
         const gameboardDoc = doc(gameboardsCollection, id);
         const snapshot = await getDoc(gameboardDoc);
         const gameboardData = snapshot.data();
-        const characters = gameboardData.characterNames.map((characterName) => new Character(characterName));
+        const characters = gameboardData.characters.map((character) => new Character(character.name, null, character.image));
         const gameboard = new Gameboard(gameboardData.image, characters);
         const gameboardDiv = document.createElement('div');
         const gameboardInfo = document.createElement('div');
