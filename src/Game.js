@@ -1,4 +1,4 @@
-import { getElementFromTemplateFile } from 'dom-utils';
+import { appendChildren, getElementFromTemplateFile } from 'dom-utils';
 import {
     getFirestore,
     doc,
@@ -75,10 +75,16 @@ class Game {
         gameboardImage.draggable = false;
 
         characters.forEach((character) => {
+            const characterImg = document.createElement('img');
             const characterP = document.createElement('p');
+
+            characterImg.src = character.getImage();
             characterP.textContent = character.getName();
 
-            charactersDiv.appendChild(characterP);
+            appendChildren(
+                charactersDiv,
+                [ characterImg, characterP ]
+            );
         });
 
         gameboardInfo.appendChild(gameboardTitle);
