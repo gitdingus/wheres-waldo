@@ -104,7 +104,7 @@ class Game {
             const clickedCoord = point;
 
             return async function (name) {
-                const charactersCollection = collection(gameboardDoc, 'characters');
+                const charactersCollection = collection(gameboardDoc, 'character-coordinates');
                 const queryCharacters = query(
                     charactersCollection, 
                     where('name', '==', name),
