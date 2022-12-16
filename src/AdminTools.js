@@ -133,6 +133,11 @@ class AdminTools {
       getPoint(x2, y2);
     });
 
+    const getExtension = (filename) => {
+      const lastDot = filename.lastIndexOf('.');
+      return filename.slice(lastDot+1);
+    }
+
     const getGameboardImageURL = async () => {
       const firebaseStorage = getStorage(app);
       const storageRef = ref(firebaseStorage, `gameboards/${gameboardImage.files[0].name}`);
